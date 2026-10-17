@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Campus Lost and Found</title><link rel="stylesheet" href="style.css" /></head>
+  <body><main class="container">
+    <header><div><p class="eyebrow">ETHEREUM DAPP</p><h1>Campus Lost and Found</h1><p>Register found items and record claims transparently on Ganache.</p></div><button id="connectButton">Connect MetaMask</button></header>
+    <p id="walletStatus" class="status">Wallet not connected.</p>
+    <section class="panel"><h2>1. Contract setup</h2><label>Deployed contract address <input id="contractAddress" placeholder="Paste the address from Remix" /></label><button id="loadContractButton" class="secondary">Load contract</button><p class="hint">Use Ganache RPC 127.0.0.1:7545 and import a Ganache account into MetaMask.</p></section>
+    <section class="grid">
+      <form id="registerForm" class="panel"><h2>2. Register a found item</h2><label>Item title <input id="title" minlength="3" required placeholder="Blue water bottle" /></label><label>Category <input id="category" required placeholder="Personal item" /></label><label>Location found <input id="location" required placeholder="Library desk" /></label><label>Description <textarea id="description" placeholder="Optional identifying details"></textarea></label><button type="submit">Register item</button></form>
+      <form id="claimForm" class="panel"><h2>3. Claim an item</h2><label>Item ID <input id="claimItemId" type="number" min="1" required /></label><button type="submit">Request claim</button><hr /><h2>Finder actions</h2><label>Item ID <input id="finderItemId" type="number" min="1" required /></label><div class="actions"><button type="button" id="approveButton" class="secondary">Approve claim</button><button type="button" id="returnButton">Mark returned</button></div></form>
+    </section>
+    <section class="panel"><div class="items-heading"><h2>Blockchain item records</h2><button id="refreshButton" class="secondary">Refresh data</button></div><div id="items" class="items"><p class="hint">Load the contract to view item records.</p></div></section><p id="message" aria-live="polite"></p>
+  </main><script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script><script src="app.js"></script></body>
+</html>
